@@ -1,0 +1,606 @@
+[
+ {
+  "path": "office/policy_he.docx",
+  "description": "Hebrew policy: right-to-left text, a table, one chart image.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "נוהל עבודה עם מסמכים 2026"
+   },
+   {
+    "kind": "contains",
+    "text": "נוהל זה מגדיר את אופן הטיפול במסמכים סרוקים ובקבצים מצורפים"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "מטרת הנוהל",
+     "תחולה",
+     "אחריות"
+    ]
+   },
+   {
+    "kind": "table_cell",
+    "row": "PDF סרוק",
+    "value": "עד 2 ימים"
+   },
+   {
+    "kind": "table_cell",
+    "row": "דואר אלקטרוני",
+    "value": "מיידי"
+   },
+   {
+    "kind": "appears_once",
+    "text": "סוף הנוהל"
+   },
+   {
+    "kind": "image_blocks",
+    "count": 1
+   },
+   {
+    "kind": "image_contains",
+    "index": 1,
+    "text": "מכירות לפי אזור"
+   },
+   {
+    "kind": "not_contains",
+    "text": "<!-- image -->"
+   },
+   {
+    "kind": "question",
+    "question": "מי אחראית על יישום הנוהל?",
+    "answer": "מנהלת מערכות המידע"
+   }
+  ]
+ },
+ {
+  "path": "office/policy_he.doc",
+  "description": "The same policy saved as a legacy .doc file.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "נוהל עבודה עם מסמכים 2026"
+   },
+   {
+    "kind": "contains",
+    "text": "נוהל זה מגדיר את אופן הטיפול במסמכים סרוקים ובקבצים מצורפים"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "מטרת הנוהל",
+     "תחולה",
+     "אחריות"
+    ]
+   },
+   {
+    "kind": "table_cell",
+    "row": "PDF סרוק",
+    "value": "עד 2 ימים"
+   },
+   {
+    "kind": "table_cell",
+    "row": "דואר אלקטרוני",
+    "value": "מיידי"
+   },
+   {
+    "kind": "appears_once",
+    "text": "סוף הנוהל"
+   },
+   {
+    "kind": "image_blocks",
+    "count": 1
+   },
+   {
+    "kind": "image_contains",
+    "index": 1,
+    "text": "מכירות לפי אזור"
+   },
+   {
+    "kind": "not_contains",
+    "text": "<!-- image -->"
+   },
+   {
+    "kind": "question",
+    "question": "מי אחראית על יישום הנוהל?",
+    "answer": "מנהלת מערכות המידע"
+   }
+  ]
+ },
+ {
+  "path": "pdf/policy_he.pdf",
+  "description": "The same policy as a digital PDF, with header and footer text in the margins.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "נוהל עבודה עם מסמכים 2026"
+   },
+   {
+    "kind": "contains",
+    "text": "נוהל זה מגדיר את אופן הטיפול במסמכים סרוקים ובקבצים מצורפים"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "מטרת הנוהל",
+     "תחולה",
+     "אחריות"
+    ]
+   },
+   {
+    "kind": "table_cell",
+    "row": "PDF סרוק",
+    "value": "עד 2 ימים"
+   },
+   {
+    "kind": "table_cell",
+    "row": "דואר אלקטרוני",
+    "value": "מיידי"
+   },
+   {
+    "kind": "appears_once",
+    "text": "סוף הנוהל"
+   },
+   {
+    "kind": "image_blocks",
+    "count": 1
+   },
+   {
+    "kind": "image_contains",
+    "index": 1,
+    "text": "מכירות לפי אזור"
+   },
+   {
+    "kind": "not_contains",
+    "text": "<!-- image -->"
+   },
+   {
+    "kind": "question",
+    "question": "מי אחראית על יישום הנוהל?",
+    "answer": "מנהלת מערכות המידע"
+   },
+   {
+    "kind": "contains",
+    "text": "מסמך פנימי · עותק מבוקר"
+   },
+   {
+    "kind": "contains",
+    "text": "מחלקת מערכות מידע · נוהל 14"
+   }
+  ]
+ },
+ {
+  "path": "pdf/mixed_direction.pdf",
+  "description": "Lines that mix Hebrew, English, numbers and currency. Tests reading order.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "גרסה 1.3.10 של Xberg שוחררה ב-16 באוקטובר 2026"
+   },
+   {
+    "kind": "contains",
+    "text": "מספר הזמנה: PO-4471-B, סכום: 12,500 ₪"
+   },
+   {
+    "kind": "contains",
+    "text": "הפגישה עם ACME Ltd. תתקיים בחדר 3 בשעה 14:30"
+   },
+   {
+    "kind": "contains",
+    "text": "This paragraph is in English and must stay in one piece",
+    "match": "exact"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "גרסה 1.3.10",
+     "מספר הזמנה",
+     "ACME Ltd",
+     "This paragraph is in English",
+     "השורה האחרונה"
+    ]
+   }
+  ]
+ },
+ {
+  "path": "pdf/long_report_40p.pdf",
+  "description": "A 40-page digital report. Watch the time per file and timeouts.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "הדוח השנתי של מערך המסמכים"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "פרק 1",
+     "פרק 20",
+     "פרק 40"
+    ]
+   },
+   {
+    "kind": "appears_once",
+    "text": "הדוח השנתי של מערך המסמכים"
+   },
+   {
+    "kind": "contains",
+    "text": "המספר המזהה של הסעיף הוא 40-4"
+   },
+   {
+    "kind": "contains",
+    "text": "סוף הדוח השנתי"
+   },
+   {
+    "kind": "question",
+    "question": "כמה פרקים יש בדוח?",
+    "answer": "40"
+   }
+  ]
+ },
+ {
+  "path": "scans/invoice_scan_he.pdf",
+  "description": "One scanned page in Hebrew. Needs OCR with Hebrew.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "חשבונית מס 2026/0457"
+   },
+   {
+    "kind": "contains",
+    "text": "לכבוד: חברת דוגמה בע״מ"
+   },
+   {
+    "kind": "contains",
+    "text": "סה״כ לתשלום: 4,956 ₪"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "חשבונית מס",
+     "שירותי ייעוץ",
+     "סה״כ לתשלום"
+    ]
+   },
+   {
+    "kind": "question",
+    "question": "מה הסכום הכולל לתשלום?",
+    "answer": "4,956 ₪"
+   }
+  ]
+ },
+ {
+  "path": "scans/form_101_scan.pdf",
+  "description": "Two scanned form pages with key-value fields.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "טופס 101 · כרטיס עובד"
+   },
+   {
+    "kind": "contains",
+    "text": "שנת מס 2026"
+   },
+   {
+    "kind": "order",
+    "items": [
+     "פרטי המעסיק",
+     "פרטי העובד",
+     "הצהרת העובד"
+    ]
+   },
+   {
+    "kind": "table_cell",
+    "row": "שם משפחה",
+    "value": "כהן"
+   },
+   {
+    "kind": "appears_once",
+    "text": "הצהרת העובד"
+   },
+   {
+    "kind": "question",
+    "question": "מה שם המעסיק?",
+    "answer": "חברת דוגמה בע״מ"
+   }
+  ]
+ },
+ {
+  "path": "scans/audit_scan_rotated.pdf",
+  "description": "A scan tilted by 2.5 degrees, with noise.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "דוח ביקורת שנתי"
+   },
+   {
+    "kind": "contains",
+    "text": "נמצאו שלושה ליקויים בתהליך הסריקה"
+   },
+   {
+    "kind": "contains",
+    "text": "הביקורת הבאה תיערך בינואר 2027"
+   }
+  ]
+ },
+ {
+  "path": "scans/letter_margins.pdf",
+  "description": "A scan with small text at the very top and bottom margins.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "אנו מאשרים את קבלת ההצעה מיום 3 באוקטובר"
+   },
+   {
+    "kind": "contains",
+    "text": "סימוכין: 2026-118"
+   },
+   {
+    "kind": "contains",
+    "text": "עמוד 1 מתוך 1"
+   }
+  ]
+ },
+ {
+  "path": "slides/deck_7_images.pptx",
+  "description": "Seven slides, seven different images: chart, table, screenshot, photo, diagram, white text on black, a transparent stamp. Tests image order and placeholder matching.",
+  "checks": [
+   {
+    "kind": "order",
+    "items": [
+     "מכירות ברבעון השלישי",
+     "מחירון ציוד",
+     "ארכיטקטורה",
+     "תודה רבה"
+    ]
+   },
+   {
+    "kind": "contains",
+    "text": "המרכז הוביל את המכירות ברבעון"
+   },
+   {
+    "kind": "appears_once",
+    "text": "תודה רבה"
+   },
+   {
+    "kind": "image_blocks",
+    "count": 7
+   },
+   {
+    "kind": "image_contains",
+    "index": 1,
+    "text": "מכירות לפי אזור"
+   },
+   {
+    "kind": "image_contains",
+    "index": 2,
+    "text": "מחשב נייד"
+   },
+   {
+    "kind": "image_contains",
+    "index": 6,
+    "text": "שעות פעילות המוקד"
+   },
+   {
+    "kind": "not_contains",
+    "text": "<!-- image -->"
+   }
+  ]
+ },
+ {
+  "path": "slides/deck_7_images.ppt",
+  "description": "The same deck saved as a legacy .ppt file.",
+  "checks": [
+   {
+    "kind": "order",
+    "items": [
+     "מכירות ברבעון השלישי",
+     "מחירון ציוד",
+     "ארכיטקטורה",
+     "תודה רבה"
+    ]
+   },
+   {
+    "kind": "contains",
+    "text": "המרכז הוביל את המכירות ברבעון"
+   },
+   {
+    "kind": "appears_once",
+    "text": "תודה רבה"
+   },
+   {
+    "kind": "image_blocks",
+    "count": 7
+   },
+   {
+    "kind": "image_contains",
+    "index": 1,
+    "text": "מכירות לפי אזור"
+   },
+   {
+    "kind": "image_contains",
+    "index": 2,
+    "text": "מחשב נייד"
+   },
+   {
+    "kind": "image_contains",
+    "index": 6,
+    "text": "שעות פעילות המוקד"
+   },
+   {
+    "kind": "not_contains",
+    "text": "<!-- image -->"
+   }
+  ]
+ },
+ {
+  "path": "slides/repeated_logo.pptx",
+  "description": "The same logo on every slide. Tests duplicate images.",
+  "checks": [
+   {
+    "kind": "order",
+    "items": [
+     "שקופית 1",
+     "שקופית 4",
+     "סיכום הרבעון"
+    ]
+   },
+   {
+    "kind": "appears_once",
+    "text": "סיכום הרבעון"
+   },
+   {
+    "kind": "contains",
+    "text": "כל היעדים הושגו"
+   },
+   {
+    "kind": "image_blocks",
+    "count": 1,
+    "op": "min"
+   }
+  ]
+ },
+ {
+  "path": "email/meeting_summary.eml",
+  "description": "An email in Hebrew (text and HTML) with a PDF and an image attached.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "סיכום פגישה – פרויקט RChat"
+   },
+   {
+    "kind": "contains",
+    "text": "בפגישה הוחלט לבצע בדיקת השוואה בין גרסאות המפענח לפני השדרוג"
+   },
+   {
+    "kind": "appears_once",
+    "text": "הבדיקה הבאה תתקיים ביום חמישי"
+   },
+   {
+    "kind": "contains",
+    "text": "סדר יום לפגישה"
+   },
+   {
+    "kind": "contains",
+    "text": "מכירות לפי אזור"
+   }
+  ]
+ },
+ {
+  "path": "images/charts/sales_by_region.png",
+  "description": "Bar chart with Hebrew labels and values.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "מכירות לפי אזור"
+   },
+   {
+    "kind": "contains",
+    "text": "6.8"
+   },
+   {
+    "kind": "contains",
+    "text": "דרום"
+   }
+  ]
+ },
+ {
+  "path": "images/charts/budget_pie.png",
+  "description": "Pie chart with a Hebrew legend.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "תקציב 2026 לפי סעיף"
+   },
+   {
+    "kind": "contains",
+    "text": "כוח אדם 55%"
+   }
+  ]
+ },
+ {
+  "path": "images/text/white_on_black.png",
+  "description": "White Hebrew text on a black background.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "שעות פעילות המוקד"
+   },
+   {
+    "kind": "contains",
+    "text": "03-5551234"
+   }
+  ]
+ },
+ {
+  "path": "images/text/screenshot_mixed.png",
+  "description": "Screenshot with Hebrew and English lines.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "העדכון לגרסה 1.3.10 הושלם בהצלחה"
+   },
+   {
+    "kind": "contains",
+    "text": "Server: docintel-x1310"
+   },
+   {
+    "kind": "contains",
+    "text": "support@example.org"
+   }
+  ]
+ },
+ {
+  "path": "images/text/price_table.png",
+  "description": "A table as an image.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "מחשב נייד"
+   },
+   {
+    "kind": "table_cell",
+    "row": "מסך",
+    "value": "950"
+   }
+  ]
+ },
+ {
+  "path": "images/photos/landscape.jpg",
+  "description": "A photo-like image without text.",
+  "checks": []
+ },
+ {
+  "path": "images/diagrams/flow.png",
+  "description": "A simple flow diagram with English box labels.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "docintel"
+   },
+   {
+    "kind": "contains",
+    "text": "זרימת קובץ במערכת"
+   }
+  ]
+ },
+ {
+  "path": "images/stamps/approved_stamp.png",
+  "description": "A transparent stamp. Shows whether transparency turns black.",
+  "checks": [
+   {
+    "kind": "contains",
+    "text": "מאושר"
+   }
+  ]
+ },
+ {
+  "path": "images/icons/icon_24.png",
+  "description": "A 24-pixel icon. Should be skipped, not described.",
+  "checks": []
+ },
+ {
+  "path": "images/icons/blank.png",
+  "description": "A blank white image. Should be skipped.",
+  "checks": []
+ }
+]

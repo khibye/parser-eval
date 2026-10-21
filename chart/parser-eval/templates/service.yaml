@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "parser-eval.fullname" . }}
+  labels:
+    {{- include "parser-eval.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{- include "parser-eval.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: http
+      port: {{ .Values.service.uiPort }}
+      targetPort: http
+      protocol: TCP
+    - name: vlm-proxy
+      port: {{ .Values.service.proxyPort }}
+      targetPort: vlm-proxy
+      protocol: TCP

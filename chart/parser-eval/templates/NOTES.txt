@@ -1,0 +1,20 @@
+parser-eval is installed.
+
+Open the UI:
+{{- if .Values.route.enabled }}
+  oc get route {{ include "parser-eval.fullname" . }} -n {{ .Release.Namespace }} -o jsonpath='{.spec.host}'
+{{- else }}
+  oc port-forward svc/{{ include "parser-eval.fullname" . }} 8080:{{ .Values.service.uiPort }} -n {{ .Release.Namespace }}
+{{- end }}
+
+Sign in with the password you sealed as APP_INITIAL_PASSWORD, then change it in Settings > Access.
+
+Set this as the VLM URL of every docintel instance you evaluate, so VLM answers can be cached:
+  {{ include "parser-eval.proxyUrl" . }}
+
+Next steps in the UI:
+  1. Settings > File storage: S3 endpoint, bucket and keys.
+  2. Settings > Judge: LiteLLM URL, model and key.
+  3. Settings > VLM cache: the LiteLLM URL that VLM calls are forwarded to.
+  4. Parsers: one entry per docintel instance.
+  5. Files & tests > Add sample set, then New run.

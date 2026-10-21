@@ -1,0 +1,81 @@
+image:
+  # Push the image built from the Dockerfile to your internal registry.
+  repository: image-registry.openshift-image-registry.svc:5000/eval/parser-eval
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+
+# Secrets come from a SealedSecret. Create the encrypted values with scripts/seal-secrets.sh.
+secrets:
+  # Name of the Secret the SealedSecret controller creates. It is part of what kubeseal encrypts,
+  # so seal with exactly this name and the release namespace.
+  name: parser-eval-secrets
+  sealedSecret:
+    enabled: true
+    # strict (default), namespace-wide or cluster-wide. Must match how the values were sealed.
+    scope: strict
+    encryptedData:
+      # Random key that encrypts stored passwords and signs sessions. Never change it after the
+      # first start, or saved keys can no longer be read.
+      APP_SECRET_KEY: ""
+      # Password for the first sign-in. Change it later in Settings > Access.
+      APP_INITIAL_PASSWORD: ""
+  # Set sealedSecret.enabled to false to use a Secret you create yourself with these two keys.
+  existingSecret: ""
+
+persistence:
+  enabled: true
+  # Use an existing PVC instead of creating one.
+  existingClaim: ""
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 20Gi
+
+route:
+  enabled: true
+  host: ""
+  # edge, reencrypt or passthrough. Leave empty for plain HTTP.
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  annotations:
+    # Long runs keep the browser polling; uploads can be large.
+    haproxy.router.openshift.io/timeout: 300s
+
+service:
+  uiPort: 8080
+  # The VLM proxy is reachable inside the cluster only. Point docintel's VLM URL at it.
+  proxyPort: 8081
+
+# Address shown in the UI for docintel's VLM URL. Empty means http://<service>.<namespace>.svc:8081/v1
+vlmProxyPublicUrl: ""
+
+networkPolicy:
+  # Limits who can reach the VLM proxy port. Recommended when a VLM key is saved in the tool.
+  enabled: false
+  # Pods allowed to call the proxy, for example the docintel instances you evaluate.
+  proxyFrom:
+    - podSelector:
+        matchLabels:
+          app.kubernetes.io/part-of: docintel-eval
+  # Who may reach the UI port. The default allows the OpenShift router.
+  uiFrom:
+    - namespaceSelector:
+        matchLabels:
+          network.openshift.io/policy-group: ingress
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    memory: 2Gi
+
+# Scratch space for files during a run.
+workDirSizeLimit: 5Gi
+
+extraEnv: []
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}

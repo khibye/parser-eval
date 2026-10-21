@@ -1,0 +1,11 @@
+# Pinned to releases from early 2024 so they are available on older internal mirrors.
+fastapi==0.110.0
+uvicorn==0.29.0
+httpx==0.27.0
+python-multipart==0.0.9
+pydantic==2.6.4
+boto3==1.34.69
+cryptography==42.0.5
+Pillow==10.3.0
+rapidfuzz==3.6.2
+pypdfium2==4.28.0

@@ -1,0 +1,25 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "parser-eval.fullname" . }}
+  labels:
+    {{- include "parser-eval.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "parser-eval.selectorLabels" . | nindent 6 }}
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - port: 8080
+          protocol: TCP
+      from:
+        {{- toYaml .Values.networkPolicy.uiFrom | nindent 8 }}
+    - ports:
+        - port: 8081
+          protocol: TCP
+      from:
+        {{- toYaml .Values.networkPolicy.proxyFrom | nindent 8 }}
+{{- end }}

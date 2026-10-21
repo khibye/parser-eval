@@ -1,0 +1,9 @@
+.git
+**/__pycache__
+**/*.pyc
+.venv*
+tests
+tools
+chart
+docs
+*.md
