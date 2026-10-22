@@ -23,7 +23,7 @@ KINDS = {
 
 # Niqqud, cantillation and other Hebrew points (letters are U+05D0..U+05EA and stay).
 _HEB_MARKS = re.compile(r"[֑-ׇֽֿׁׂׅׄ]")
-_BIDI = re.compile(r"[‎‏‪-‮⁦-⁩؜﻿​-‍]")
+_BIDI = re.compile("[" + "\\u200e\\u200f\\u202a-\\u202e\\u2066-\\u2069\\u061c\\ufeff\\u200b-\\u200d" + "]")
 _MD_EMPHASIS = re.compile(r"(\*\*|__|`)")
 _SPACES = re.compile(r"\s+")
 _TRANSLATE = str.maketrans({
