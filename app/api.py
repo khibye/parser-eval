@@ -216,8 +216,11 @@ async def datasets():
 
 
 @api.post("/files/upload")
-async def upload(prefix: str = Form(...), files: list[UploadFile] = File(...)):
+async def upload(prefix: str = Form(""), files: list[UploadFile] = File(...)):
+    # FastAPI treats an empty form field as missing, and the bucket's top level is an empty
+    # prefix, so the field is optional and an empty value means the root folder.
     root = s3store.root()
+    prefix = prefix or root
     if not prefix.startswith(root):
         raise HTTPException(400, "Uploads must go inside the root folder.")
     if prefix and not prefix.endswith("/"):
